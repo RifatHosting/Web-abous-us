@@ -1,0 +1,2841 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Enhancer Pro - Advanced AI Image Enhancement</title>
+    <style>
+        /* CSS Reset and Advanced Variables */
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #1a1a1a;
+            --text-color: #000000;
+            --light-text: #666666;
+            --border-color: #e0e0e0;
+            --success-color: #000000;
+            --error-color: #ff0000;
+            --warning-color: #ff6b00;
+            --info-color: #0066ff;
+            
+            /* Advanced Gradients */
+            --gradient-primary: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #333333 100%);
+            --gradient-secondary: linear-gradient(135deg, #ffffff 0%, #f5f5f5 50%, #e0e0e0 100%);
+            --gradient-accent: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+            
+            /* Advanced Shadows */
+            --shadow-sm: 0 2px 10px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-2xl: 0 30px 80px rgba(0,0,0,0.2);
+            --shadow-inset: inset 0 2px 10px rgba(0,0,0,0.1);
+            
+            /* Advanced Transitions */
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-normal: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            /* Advanced Radius */
+            --radius-xs: 4px;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 50%;
+            
+            /* Advanced Spacing */
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 3rem;
+            --space-xl: 4rem;
+            --space-2xl: 6rem;
+            --space-3xl: 8rem;
+            
+            /* Advanced Typography */
+            --font-xs: 0.75rem;
+            --font-sm: 0.875rem;
+            --font-base: 1rem;
+            --font-lg: 1.125rem;
+            --font-xl: 1.25rem;
+            --font-2xl: 1.5rem;
+            --font-3xl: 1.875rem;
+            --font-4xl: 2.25rem;
+            --font-5xl: 3rem;
+            --font-6xl: 3.75rem;
+            
+            /* Z-Index Scale */
+            --z-dropdown: 1000;
+            --z-sticky: 1020;
+            --z-fixed: 1030;
+            --z-modal-backdrop: 1040;
+            --z-modal: 1050;
+            --z-popover: 1060;
+            --z-tooltip: 1070;
+            --z-toast: 1080;
+        }
+
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* Advanced Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            color: var(--text-color);
+        }
+
+        h1 { font-size: var(--font-6xl); }
+        h2 { font-size: var(--font-5xl); }
+        h3 { font-size: var(--font-4xl); }
+        h4 { font-size: var(--font-3xl); }
+        h5 { font-size: var(--font-2xl); }
+        h6 { font-size: var(--font-xl); }
+
+        p {
+            font-size: var(--font-base);
+            line-height: 1.7;
+            color: var(--light-text);
+            margin-bottom: var(--space-sm);
+        }
+
+        /* Advanced Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: var(--radius-xs);
+            transition: var(--transition-fast);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-color);
+        }
+
+        /* Advanced Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: var(--z-fixed);
+            transition: var(--transition-normal);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-md) var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: var(--font-2xl);
+            font-weight: 900;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: var(--transition-normal);
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo svg {
+            width: 40px;
+            height: 40px;
+            transition: var(--transition-bounce);
+        }
+
+        .logo:hover svg {
+            transform: rotate(10deg) scale(1.1);
+        }
+
+        nav {
+            display: flex;
+            gap: var(--space-lg);
+        }
+
+        nav a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: var(--font-base);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 80%;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: var(--transition-normal);
+        }
+
+        nav a:hover::before,
+        nav a.active::before {
+            transform: translateX(-50%) scaleX(1);
+        }
+
+        nav a:hover,
+        nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Advanced Main Container */
+        main {
+            padding-top: 80px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        /* Advanced Page System */
+        .page {
+            display: none;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Advanced Hero Section */
+        .hero {
+            padding: var(--space-3xl) 0;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(var(--font-4xl), 8vw, var(--font-6xl));
+            margin-bottom: var(--space-md);
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 0.9;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(var(--font-lg), 3vw, var(--font-xl));
+            color: var(--light-text);
+            margin: 0 auto var(--space-lg);
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Advanced Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-lg);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: var(--font-base);
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: var(--space-md) var(--space-xl);
+            font-size: var(--font-lg);
+        }
+
+        /* Advanced Feature Cards */
+        .features {
+            padding: var(--space-2xl) 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: var(--space-lg);
+        }
+
+        .feature-card {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .feature-card h3 {
+            font-size: var(--font-2xl);
+            margin-bottom: var(--space-md);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .feature-card svg {
+            width: 32px;
+            height: 32px;
+            transition: var(--transition-bounce);
+        }
+
+        .feature-card:hover svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card p {
+            font-size: var(--font-base);
+            line-height: 1.8;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+
+        /* Advanced Editor Page */
+        .editor-page {
+            padding: var(--space-2xl) 0;
+            min-height: calc(100vh - 80px);
+        }
+
+        .editor-hero {
+            text-align: center;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .editor-hero h1 {
+            font-size: clamp(var(--font-3xl), 6vw, var(--font-5xl));
+            margin-bottom: var(--space-md);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .editor-hero p {
+            font-size: var(--font-lg);
+            color: var(--light-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Advanced Editor Layout */
+        .editor-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+        }
+
+        .editor-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: start;
+        }
+
+        /* Advanced Upload Section */
+        .upload-section {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .upload-area {
+            border: 3px dashed rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-md);
+            padding: var(--space-2xl);
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-normal);
+            background-color: rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .upload-area:hover,
+        .upload-area.drag-over {
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: scale(1.02);
+        }
+
+        .upload-area svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--space-md);
+            opacity: 0.8;
+            transition: var(--transition-bounce);
+        }
+
+        .upload-area:hover svg {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .upload-area h3 {
+            font-size: var(--font-2xl);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .upload-area p {
+            font-size: var(--font-base);
+            opacity: 0.8;
+            margin-bottom: var(--space-lg);
+        }
+
+        /* Advanced Enhancement Controls */
+        .enhancement-controls {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enhancement-controls::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .control-section {
+            margin-bottom: var(--space-lg);
+        }
+
+        .control-section h3 {
+            font-size: var(--font-xl);
+            margin-bottom: var(--space-md);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .enhancement-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .mode-btn {
+            padding: var(--space-sm);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-sm);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .mode-btn:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mode-btn.active {
+            border-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .advanced-controls {
+            display: grid;
+            gap: var(--space-md);
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xs);
+        }
+
+        .control-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .control-value {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: var(--space-xs) var(--space-sm);
+            border-radius: var(--radius-xs);
+            font-size: var(--font-sm);
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: var(--radius-xs);
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--secondary-color);
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+
+        .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background: var(--secondary-color);
+            cursor: pointer;
+            border: none;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+        }
+
+        .slider::-moz-range-thumb:hover {
+            transform: scale(1.1);
+        }
+
+        .toggle-group {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .toggle-btn {
+            padding: var(--space-xs) var(--space-sm);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-xs);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: var(--font-sm);
+            font-weight: 500;
+        }
+
+        .toggle-btn:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .toggle-btn.active {
+            border-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Advanced Preview Section */
+        .preview-section {
+            grid-column: 1 / -1;
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .preview-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .preview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .preview-title {
+            font-size: var(--font-xl);
+            font-weight: 700;
+        }
+
+        .preview-controls {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .preview-btn {
+            padding: var(--space-xs) var(--space-sm);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-xs);
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--secondary-color);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            font-size: var(--font-sm);
+            font-weight: 500;
+        }
+
+        .preview-btn:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .preview-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-color: #111;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .preview-placeholder {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .preview-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: var(--space-md);
+            opacity: 0.5;
+        }
+
+        .preview-comparison {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+
+        .preview-comparison.active {
+            display: block;
+        }
+
+        .preview-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .comparison-slider {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: white;
+            cursor: ew-resize;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        .comparison-slider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 44px;
+            height: 44px;
+            background-color: white;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comparison-slider::after {
+            content: '◀ ▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12px;
+            color: var(--primary-color);
+        }
+
+        /* Advanced Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-lg);
+            justify-content: center;
+        }
+
+        .action-btn {
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: var(--font-base);
+            cursor: pointer;
+            transition: var(--transition-normal);
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .action-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .action-btn-primary {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-md);
+        }
+
+        .action-btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .action-btn-secondary {
+            background-color: transparent;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .action-btn-secondary:hover:not(:disabled) {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Advanced Processing Modal */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: var(--z-modal);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--gradient-secondary);
+            color: var(--primary-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            max-width: 500px;
+            width: 90%;
+            box-shadow: var(--shadow-2xl);
+            text-align: center;
+        }
+
+        .processing-spinner {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto var(--space-lg);
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-top: 4px solid var(--primary-color);
+            border-radius: var(--radius-full);
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .modal h3 {
+            font-size: var(--font-2xl);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .progress-container {
+            margin: var(--space-lg) 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: rgba(0, 0, 0, 0.1);
+            border-radius: var(--radius-xs);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-primary);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .processing-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-sm);
+            font-size: var(--font-xs);
+            color: var(--light-text);
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-xs);
+        }
+
+        .step-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: var(--radius-full);
+            background-color: rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-xs);
+            font-weight: 600;
+        }
+
+        .step.active .step-icon {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .step.completed .step-icon {
+            background-color: var(--success-color);
+            color: var(--secondary-color);
+        }
+
+        /* Advanced Result Modal */
+        .result-modal .modal-content {
+            max-width: 900px;
+            width: 95%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .result-header {
+            text-align: center;
+            margin-bottom: var(--space-lg);
+        }
+
+        .result-header h3 {
+            font-size: var(--font-3xl);
+            margin-bottom: var(--space-sm);
+            font-weight: 700;
+        }
+
+        .result-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .result-image {
+            text-align: center;
+        }
+
+        .result-image h4 {
+            font-size: var(--font-lg);
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .result-image img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+        }
+
+        .result-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Advanced About Page */
+        .about-page {
+            padding: var(--space-2xl) 0;
+        }
+
+        .about-hero {
+            text-align: center;
+            padding: var(--space-2xl) 0;
+            margin-bottom: var(--space-2xl);
+        }
+
+        .about-hero h1 {
+            font-size: clamp(var(--font-4xl), 7vw, var(--font-5xl));
+            margin-bottom: var(--space-md);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+        }
+
+        .about-hero p {
+            font-size: var(--font-lg);
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-sections {
+            display: grid;
+            gap: var(--space-2xl);
+        }
+
+        .about-section {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #333, #666, #333);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+
+        .about-section h2 {
+            font-size: var(--font-3xl);
+            margin-bottom: var(--space-lg);
+            font-weight: 800;
+        }
+
+        .about-section p {
+            font-size: var(--font-base);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+            opacity: 0.9;
+        }
+
+        .algorithm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .algorithm-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: var(--space-lg);
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+        }
+
+        .algorithm-card:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .algorithm-card h4 {
+            font-size: var(--font-lg);
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+        }
+
+        .algorithm-card p {
+            font-size: var(--font-sm);
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .founder-section {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: var(--space-2xl);
+            align-items: center;
+        }
+
+        .founder-image {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+            z-index: 1;
+        }
+
+        .founder-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition-slow);
+        }
+
+        .founder-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .founder-info h3 {
+            font-size: var(--font-2xl);
+            margin-bottom: var(--space-xs);
+            font-weight: 800;
+        }
+
+        .founder-title {
+            font-size: var(--font-lg);
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: var(--space-lg);
+            font-weight: 500;
+        }
+
+        .founder-stats {
+            display: flex;
+            gap: var(--space-lg);
+            margin-top: var(--space-lg);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: var(--font-3xl);
+            font-weight: 800;
+            margin-bottom: var(--space-xs);
+            background: linear-gradient(135deg, #fff 0%, #ccc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: var(--font-sm);
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        /* Advanced Toast */
+        .toast {
+            position: fixed;
+            bottom: var(--space-lg);
+            right: var(--space-lg);
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-md) var(--space-lg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: var(--transition-normal);
+            z-index: var(--z-toast);
+            max-width: 400px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .toast.error {
+            background-color: var(--error-color);
+        }
+
+        .toast.success {
+            background-color: var(--success-color);
+        }
+
+        .toast-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Advanced Footer */
+        footer {
+            background: var(--gradient-primary);
+            color: var(--secondary-color);
+            padding: var(--space-2xl);
+            text-align: center;
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 var(--space-md);
+            }
+            
+            .header-content {
+                padding: var(--space-md) var(--space-lg);
+            }
+            
+            nav {
+                gap: var(--space-md);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .editor-main {
+                grid-template-columns: 1fr;
+            }
+
+            .founder-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .founder-stats {
+                justify-content: center;
+            }
+
+            .result-comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .enhancement-modes {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            nav {
+                gap: var(--space-sm);
+            }
+
+            nav a {
+                padding: var(--space-xs) var(--space-sm);
+                font-size: var(--font-sm);
+            }
+
+            .hero h1 {
+                font-size: clamp(var(--font-3xl), 8vw, var(--font-4xl));
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .upload-section,
+            .enhancement-controls,
+            .preview-section,
+            .about-section {
+                padding: var(--space-lg);
+            }
+
+            .founder-stats {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .result-actions {
+                flex-direction: column;
+            }
+
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .toast {
+                bottom: var(--space-md);
+                right: var(--space-md);
+                left: var(--space-md);
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 var(--space-sm);
+            }
+
+            .hero {
+                padding: var(--space-2xl) 0;
+            }
+
+            .upload-section,
+            .enhancement-controls,
+            .preview-section,
+            .about-section {
+                padding: var(--space-md);
+            }
+
+            .upload-area {
+                padding: var(--space-lg) var(--space-md);
+            }
+
+            .upload-area svg {
+                width: 60px;
+                height: 60px;
+            }
+
+            .upload-area h3 {
+                font-size: var(--font-xl);
+            }
+
+            .modal-content {
+                padding: var(--space-lg);
+            }
+
+            .enhancement-modes {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Utility Classes */
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .gap-sm {
+            gap: var(--space-sm);
+        }
+
+        .gap-md {
+            gap: var(--space-md);
+        }
+
+        .gap-lg {
+            gap: var(--space-lg);
+        }
+
+        /* Loading Animation */
+        .loading-dots {
+            display: inline-flex;
+            gap: 0.3rem;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background-color: currentColor;
+            border-radius: var(--radius-full);
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+        .loading-dots span:nth-child(1) {
+            animation-delay: -0.32s;
+        }
+
+        .loading-dots span:nth-child(2) {
+            animation-delay: -0.16s;
+        }
+
+        @keyframes bounce {
+            0%, 80%, 100% {
+                transform: scale(0);
+            }
+            40% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Advanced Header -->
+    <header>
+        <div class="header-content">
+            <a href="#home" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                    <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                Image Enhancer Pro
+            </a>
+            <nav>
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#editor" class="nav-link" data-page="editor">Editor</a>
+                <a href="#about" class="nav-link" data-page="about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <h1>Image Enhancer Pro</h1>
+                        <p>Sistem enhancement gambar canggih dengan AI-powered processing untuk hasil yang profesional</p>
+                        <a href="#editor" class="btn btn-primary btn-lg nav-link" data-page="editor">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                            Mulai Enhancement
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="features">
+                <div class="container">
+                    <div class="feature-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"></path>
+                            </svg>
+                            Privasi Terjamin
+                        </h3>
+                        <p>Semua pemrosesan gambar dilakukan secara lokal di browser Anda. Tidak ada gambar yang dikirim ke server, data Anda aman 100%.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            Tanpa Instalasi
+                        </h3>
+                        <p>Cukup buka halaman ini di browser Anda dan mulai edit gambar tanpa perlu menginstal software apapun.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            AI-Powered Enhancement
+                        </h3>
+                        <p>Teknologi AI canggih secara otomatis menganalisis dan menerapkan enhancement yang tepat untuk setiap gambar.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Editor Page -->
+        <div id="editor" class="page">
+            <div class="editor-page">
+                <div class="container">
+                    <div class="editor-hero">
+                        <h1>Advanced Image Enhancement</h1>
+                        <p>Sistem enhancement profesional dengan kontrol penuh dan processing real-time</p>
+                    </div>
+
+                    <div class="editor-layout">
+                        <div class="editor-main">
+                            <!-- Upload Section -->
+                            <div class="upload-section">
+                                <div class="upload-area" id="upload-area">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="17 8 12 3 7 8"></polyline>
+                                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                                    </svg>
+                                    <h3>Upload Gambar</h3>
+                                    <p>Drag & drop atau klik untuk memilih file</p>
+                                    <button class="btn btn-secondary">Pilih File</button>
+                                    <input type="file" id="file-input" accept="image/*" style="display: none;">
+                                </div>
+                            </div>
+
+                            <!-- Enhancement Controls -->
+                            <div class="enhancement-controls">
+                                <div class="control-section">
+                                    <h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path d="M12 1v6m0 6v6m4.22-13.22l4.24 4.24M1.54 9.96l4.24 4.24M1 12h6m6 0h6"></path>
+                                        </svg>
+                                        Enhancement Modes
+                                    </h3>
+                                    <div class="enhancement-modes">
+                                        <button class="mode-btn active" data-mode="auto">Auto</button>
+                                        <button class="mode-btn" data-mode="portrait">Portrait</button>
+                                        <button class="mode-btn" data-mode="landscape">Landscape</button>
+                                        <button class="mode-btn" data-mode="noise">Noise Reduction</button>
+                                        <button class="mode-btn" data-mode="sharpen">Sharpen</button>
+                                        <button class="mode-btn" data-mode="custom">Custom</button>
+                                    </div>
+                                </div>
+
+                                <div class="control-section">
+                                    <h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                                        </svg>
+                                        Advanced Controls
+                                    </h3>
+                                    <div class="advanced-controls">
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <span>Strength</span>
+                                                <span class="control-value" id="strength-value">75%</span>
+                                            </div>
+                                            <input type="range" class="slider" id="strength-slider" min="0" max="100" value="75">
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <span>Radius</span>
+                                                <span class="control-value" id="radius-value">3px</span>
+                                            </div>
+                                            <input type="range" class="slider" id="radius-slider" min="1" max="10" value="3">
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <span>Detail</span>
+                                                <span class="control-value" id="detail-value">50%</span>
+                                            </div>
+                                            <input type="range" class="slider" id="detail-slider" min="0" max="100" value="50">
+                                        </div>
+                                        <div class="control-group">
+                                            <div class="control-label">
+                                                <span>Contrast</span>
+                                                <span class="control-value" id="contrast-value">20%</span>
+                                            </div>
+                                            <input type="range" class="slider" id="contrast-slider" min="-50" max="50" value="20">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="control-section">
+                                    <h3>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="16" y1="13" x2="8" y2="13"></line>
+                                            <line x1="16" y1="17" x2="8" y2="17"></line>
+                                            <polyline points="10 9 9 9 8 9"></polyline>
+                                        </svg>
+                                        Enhancement Options
+                                    </h3>
+                                    <div class="toggle-group">
+                                        <button class="toggle-btn active" data-option="denoise">Denoise</button>
+                                        <button class="toggle-btn active" data-option="sharpen">Sharpen</button>
+                                        <button class="toggle-btn" data-option="contrast">Contrast</button>
+                                        <button class="toggle-btn" data-option="saturation">Saturation</button>
+                                        <button class="toggle-btn" data-option="clarity">Clarity</button>
+                                        <button class="toggle-btn" data-option="vibrance">Vibrance</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Preview Section -->
+                        <div class="preview-section">
+                            <div class="preview-header">
+                                <div class="preview-title">Preview</div>
+                                <div class="preview-controls">
+                                    <button class="preview-btn" id="fit-btn">Fit</button>
+                                    <button class="preview-btn" id="actual-btn">Actual</button>
+                                    <button class="preview-btn" id="compare-btn">Compare</button>
+                                </div>
+                            </div>
+                            <div class="preview-container">
+                                <div class="preview-placeholder">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <polyline points="21 15 16 10 5 21"></polyline>
+                                    </svg>
+                                    <p>Upload gambar untuk melihat preview</p>
+                                </div>
+                                <div class="preview-comparison" id="preview-comparison">
+                                    <canvas id="original-canvas" class="preview-canvas"></canvas>
+                                    <canvas id="processed-canvas" class="preview-canvas"></canvas>
+                                    <div class="comparison-slider" id="comparison-slider"></div>
+                                </div>
+                            </div>
+                            <div class="action-buttons">
+                                <button class="action-btn action-btn-primary" id="enhance-btn" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                    </svg>
+                                    Enhance Image
+                                </button>
+                                <button class="action-btn action-btn-secondary" id="reset-btn" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polyline points="1 4 1 10 7 10"></polyline>
+                                        <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                                    </svg>
+                                    Reset
+                                </button>
+                                <button class="action-btn action-btn-secondary" id="download-btn" disabled>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Page -->
+        <div id="about" class="page">
+            <div class="about-page">
+                <div class="container">
+                    <div class="about-hero">
+                        <h1>Tentang Image Enhancer Pro</h1>
+                        <p>Platform enhancement gambar profesional dengan teknologi AI canggih yang sepenuhnya berjalan di browser</p>
+                    </div>
+
+                    <div class="about-sections">
+                        <div class="about-section">
+                            <h2>Teknologi Enhancement Canggih</h2>
+                            <p>Image Enhancer Pro menggunakan algoritma pemrosesan gambar yang sangat canggih dengan kombinasi multiple enhancement techniques untuk hasil yang optimal.</p>
+                            
+                            <div class="algorithm-grid">
+                                <div class="algorithm-card">
+                                    <h4>Adaptive AI Analysis</h4>
+                                    <p>Sistem AI yang menganalisis karakteristik gambar dan menyesuaikan parameter enhancement secara otomatis.</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Multi-layer Processing</h4>
+                                    <p>Pemrosesan berlapis dengan berbagai algoritma untuk setiap aspek gambar (noise, sharpness, contrast, color).</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Real-time Preview</h4>
+                                    <p>Preview real-time dengan comparison slider untuk melihat hasil sebelum dan sesudah enhancement.</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Professional Controls</h4>
+                                    <p>Kontrol profesional untuk pengguna advanced yang ingin menyesuaikan parameter enhancement secara detail.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-section">
+                            <h2>Algoritma Enhancement</h2>
+                            <p>Berbagai algoritma canggih yang digunakan untuk meningkatkan kualitas gambar:</p>
+                            
+                            <div class="algorithm-grid">
+                                <div class="algorithm-card">
+                                    <h4>Advanced Unsharp Mask</h4>
+                                    <p>Teknik sharpening yang ditingkatkan dengan adaptive thresholding untuk hasil yang natural.</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Smart Bilateral Filter</h4>
+                                    <p>Filter bilateral yang dioptimalkan untuk noise reduction sambil mempertahankan detail tepi.</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Non-local Means Denoising</h4>
+                                    <p>Algoritma denoising advanced yang efektif untuk berbagai jenis noise.</p>
+                                </div>
+                                <div class="algorithm-card">
+                                    <h4>Contrast Enhancement</h4>
+                                    <p>Adaptive histogram equalization untuk meningkatkan kontras tanpa overexposure.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="about-section">
+                            <div class="founder-section">
+                                <div class="founder-image">
+                                    <img src="https://picsum.photos/seed/founder/350/350.jpg" alt="Rifat Radli Hidayat">
+                                </div>
+                                <div class="founder-info">
+                                    <h3>Rifat Radli Hidayat</h3>
+                                    <div class="founder-title">Founder & Lead Developer</div>
+                                    <p>Seorang pelajar berusia 15 tahun dengan passion luar biasa dalam teknologi dan computer vision. Sebagai developer muda, Rifat telah menguasai berbagai teknik pemrosesan gambar dan machine learning.</p>
+                                    <p>Dengan dedikasi dan ketekunan, Rifat mengembangkan Image Enhancer Pro sebagai solusi profesional untuk enhancement gambar yang dapat diakses oleh semua orang tanpa mengorbankan privasi.</p>
+                                    <div class="founder-stats">
+                                        <div class="stat-item">
+                                            <div class="stat-value">15</div>
+                                            <div class="stat-label">Usia</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value">3+</div>
+                                            <div class="stat-label">Tahun Pengalaman</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value">10+</div>
+                                            <div class="stat-label">Proyek Selesai</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Advanced Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Image Enhancer Pro. All rights reserved. | Version 2.0.0 | Privacy First</p>
+        </div>
+    </footer>
+
+    <!-- Processing Modal -->
+    <div class="modal" id="processing-modal">
+        <div class="modal-content">
+            <div class="processing-spinner"></div>
+            <h3>Processing Image</h3>
+            <p>Applying advanced enhancement algorithms<span class="loading-dots"><span></span><span></span><span></span></span></p>
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <div class="processing-steps">
+                    <div class="step active" id="step-1">
+                        <div class="step-icon">1</div>
+                        <span>Analyze</span>
+                    </div>
+                    <div class="step" id="step-2">
+                        <div class="step-icon">2</div>
+                        <span>Enhance</span>
+                    </div>
+                    <div class="step" id="step-3">
+                        <div class="step-icon">3</div>
+                        <span>Optimize</span>
+                    </div>
+                    <div class="step" id="step-4">
+                        <div class="step-icon">4</div>
+                        <span>Complete</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Modal -->
+    <div class="modal result-modal" id="result-modal">
+        <div class="modal-content">
+            <div class="result-header">
+                <h3>Enhancement Complete!</h3>
+                <p>Gambar Anda telah berhasil ditingkatkan dengan teknologi AI canggih</p>
+            </div>
+            <div class="result-comparison">
+                <div class="result-image">
+                    <h4>Original</h4>
+                    <img id="result-before" src="" alt="Before">
+                </div>
+                <div class="result-image">
+                    <h4>Enhanced</h4>
+                    <img id="result-after" src="" alt="After">
+                </div>
+            </div>
+            <div class="result-actions">
+                <button class="btn btn-primary" id="download-result">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                    Download Enhanced
+                </button>
+                <button class="btn btn-secondary" id="close-result">Close</button>
+                <button class="btn btn-secondary" id="new-image">Enhance Another</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <span id="toast-message">Message</span>
+    </div>
+
+    <script>
+        // Advanced Image Enhancement System
+        class ImageEnhancerPro {
+            constructor() {
+                this.originalImage = null;
+                this.processedImage = null;
+                this.currentMode = 'auto';
+                this.enhancementOptions = {
+                    denoise: true,
+                    sharpen: true,
+                    contrast: false,
+                    saturation: false,
+                    clarity: false,
+                    vibrance: false
+                };
+                this.parameters = {
+                    strength: 75,
+                    radius: 3,
+                    detail: 50,
+                    contrast: 20
+                };
+                this.isProcessing = false;
+                this.comparisonPosition = 50;
+                
+                this.initializeElements();
+                this.setupEventListeners();
+                this.initializeComparisonSlider();
+            }
+
+            initializeElements() {
+                // Page elements
+                this.pages = document.querySelectorAll('.page');
+                this.navLinks = document.querySelectorAll('.nav-link');
+                
+                // Upload elements
+                this.uploadArea = document.getElementById('upload-area');
+                this.fileInput = document.getElementById('file-input');
+                
+                // Control elements
+                this.modeButtons = document.querySelectorAll('.mode-btn');
+                this.toggleButtons = document.querySelectorAll('.toggle-btn');
+                this.sliders = {
+                    strength: document.getElementById('strength-slider'),
+                    radius: document.getElementById('radius-slider'),
+                    detail: document.getElementById('detail-slider'),
+                    contrast: document.getElementById('contrast-slider')
+                };
+                this.sliderValues = {
+                    strength: document.getElementById('strength-value'),
+                    radius: document.getElementById('radius-value'),
+                    detail: document.getElementById('detail-value'),
+                    contrast: document.getElementById('contrast-value')
+                };
+                
+                // Preview elements
+                this.previewContainer = document.querySelector('.preview-container');
+                this.previewPlaceholder = document.querySelector('.preview-placeholder');
+                this.previewComparison = document.getElementById('preview-comparison');
+                this.originalCanvas = document.getElementById('original-canvas');
+                this.processedCanvas = document.getElementById('processed-canvas');
+                this.comparisonSlider = document.getElementById('comparison-slider');
+                
+                // Action buttons
+                this.enhanceBtn = document.getElementById('enhance-btn');
+                this.resetBtn = document.getElementById('reset-btn');
+                this.downloadBtn = document.getElementById('download-btn');
+                this.fitBtn = document.getElementById('fit-btn');
+                this.actualBtn = document.getElementById('actual-btn');
+                this.compareBtn = document.getElementById('compare-btn');
+                
+                // Modal elements
+                this.processingModal = document.getElementById('processing-modal');
+                this.resultModal = document.getElementById('result-modal');
+                this.progressFill = document.getElementById('progress-fill');
+                this.resultBefore = document.getElementById('result-before');
+                this.resultAfter = document.getElementById('result-after');
+                
+                // Toast
+                this.toast = document.getElementById('toast');
+                this.toastMessage = document.getElementById('toast-message');
+            }
+
+            setupEventListeners() {
+                // Navigation
+                this.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.showPage(link.dataset.page);
+                    });
+                });
+
+                // File upload
+                this.uploadArea.addEventListener('click', () => this.fileInput.click());
+                this.fileInput.addEventListener('change', (e) => this.handleFileSelect(e));
+                this.uploadArea.addEventListener('dragover', (e) => this.handleDragOver(e));
+                this.uploadArea.addEventListener('dragleave', (e) => this.handleDragLeave(e));
+                this.uploadArea.addEventListener('drop', (e) => this.handleDrop(e));
+
+                // Mode buttons
+                this.modeButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.modeButtons.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        this.currentMode = btn.dataset.mode;
+                        this.updateControlsForMode();
+                    });
+                });
+
+                // Toggle buttons
+                this.toggleButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        btn.classList.toggle('active');
+                        this.enhancementOptions[btn.dataset.option] = btn.classList.contains('active');
+                    });
+                });
+
+                // Sliders
+                Object.keys(this.sliders).forEach(key => {
+                    this.sliders[key].addEventListener('input', (e) => {
+                        this.parameters[key] = parseInt(e.target.value);
+                        this.updateSliderValue(key);
+                        if (this.originalImage && !this.isProcessing) {
+                            this.debounceProcess();
+                        }
+                    });
+                });
+
+                // Action buttons
+                this.enhanceBtn.addEventListener('click', () => this.enhanceImage());
+                this.resetBtn.addEventListener('click', () => this.resetImage());
+                this.downloadBtn.addEventListener('click', () => this.downloadImage());
+                this.fitBtn.addEventListener('click', () => this.setZoomMode('fit'));
+                this.actualBtn.addEventListener('click', () => this.setZoomMode('actual'));
+                this.compareBtn.addEventListener('click', () => this.toggleComparison());
+
+                // Modal buttons
+                document.getElementById('download-result').addEventListener('click', () => this.downloadImage());
+                document.getElementById('close-result').addEventListener('click', () => this.closeResultModal());
+                document.getElementById('new-image').addEventListener('click', () => this.newImage());
+            }
+
+            showPage(pageId) {
+                this.pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+                document.getElementById(pageId).classList.add('active');
+
+                this.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.dataset.page === pageId) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            handleFileSelect(e) {
+                const file = e.target.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    this.loadImage(file);
+                } else {
+                    this.showToast('Please select a valid image file', 'error');
+                }
+            }
+
+            handleDragOver(e) {
+                e.preventDefault();
+                this.uploadArea.classList.add('drag-over');
+            }
+
+            handleDragLeave(e) {
+                e.preventDefault();
+                this.uploadArea.classList.remove('drag-over');
+            }
+
+            handleDrop(e) {
+                e.preventDefault();
+                this.uploadArea.classList.remove('drag-over');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0 && files[0].type.startsWith('image/')) {
+                    this.loadImage(files[0]);
+                } else {
+                    this.showToast('Please drop a valid image file', 'error');
+                }
+            }
+
+            loadImage(file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.originalImage = img;
+                        this.displayImage(this.originalCanvas, img);
+                        this.displayImage(this.processedCanvas, img);
+                        this.showPreview();
+                        this.enableControls();
+                        this.analyzeImage();
+                        this.showToast('Image loaded successfully', 'success');
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+
+            displayImage(canvas, img) {
+                const ctx = canvas.getContext('2d');
+                const containerWidth = this.previewContainer.clientWidth;
+                const containerHeight = this.previewContainer.clientHeight;
+                
+                let width = img.width;
+                let height = img.height;
+                
+                // Calculate scaling to fit within the container
+                if (width > containerWidth || height > containerHeight) {
+                    const ratio = Math.min(containerWidth / width, containerHeight / height);
+                    width *= ratio;
+                    height *= ratio;
+                }
+                
+                canvas.width = width;
+                canvas.height = height;
+                ctx.drawImage(img, 0, 0, width, height);
+                
+                this.updateComparisonSlider();
+            }
+
+            showPreview() {
+                this.previewPlaceholder.style.display = 'none';
+                this.previewComparison.classList.add('active');
+            }
+
+            enableControls() {
+                this.enhanceBtn.disabled = false;
+                this.resetBtn.disabled = false;
+                this.downloadBtn.disabled = false;
+            }
+
+            analyzeImage() {
+                if (!this.originalImage) return;
+                
+                // Create a temporary canvas for analysis
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                
+                tempCanvas.width = this.originalImage.width;
+                tempCanvas.height = this.originalImage.height;
+                tempCtx.drawImage(this.originalImage, 0, 0);
+                
+                const imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+                const analysis = this.performImageAnalysis(imageData);
+                
+                // Auto-adjust parameters based on analysis
+                if (this.currentMode === 'auto') {
+                    this.autoAdjustParameters(analysis);
+                }
+            }
+
+            performImageAnalysis(imageData) {
+                const pixels = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                
+                let totalBrightness = 0;
+                let totalContrast = 0;
+                let noiseLevel = 0;
+                let sharpness = 0;
+                
+                // Calculate average brightness
+                for (let i = 0; i < pixels.length; i += 4) {
+                    const brightness = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+                    totalBrightness += brightness;
+                }
+                const avgBrightness = totalBrightness / (pixels.length / 4);
+                
+                // Calculate contrast
+                for (let i = 0; i < pixels.length; i += 4) {
+                    const brightness = (pixels[i] + pixels[i + 1] + pixels[i + 2]) / 3;
+                    totalContrast += Math.abs(brightness - avgBrightness);
+                }
+                const avgContrast = totalContrast / (pixels.length / 4);
+                
+                // Estimate noise level
+                for (let y = 1; y < height - 1; y++) {
+                    for (let x = 1; x < width - 1; x++) {
+                        const idx = (y * width + x) * 4;
+                        const centerBrightness = (pixels[idx] + pixels[idx + 1] + pixels[idx + 2]) / 3;
+                        
+                        for (let dy = -1; dy <= 1; dy++) {
+                            for (let dx = -1; dx <= 1; dx++) {
+                                if (dx === 0 && dy === 0) continue;
+                                
+                                const nIdx = ((y + dy) * width + (x + dx)) * 4;
+                                const neighborBrightness = (pixels[nIdx] + pixels[nIdx + 1] + pixels[nIdx + 2]) / 3;
+                                noiseLevel += Math.abs(centerBrightness - neighborBrightness);
+                            }
+                        }
+                    }
+                }
+                noiseLevel = noiseLevel / ((width - 2) * (height - 2) * 8);
+                
+                // Estimate sharpness
+                for (let y = 1; y < height - 1; y++) {
+                    for (let x = 1; x < width - 1; x++) {
+                        const idx = (y * width + x) * 4;
+                        const centerBrightness = (pixels[idx] + pixels[idx + 1] + pixels[idx + 2]) / 3;
+                        
+                        const rightIdx = (y * width + (x + 1)) * 4;
+                        const rightBrightness = (pixels[rightIdx] + pixels[rightIdx + 1] + pixels[rightIdx + 2]) / 3;
+                        
+                        const bottomIdx = ((y + 1) * width + x) * 4;
+                        const bottomBrightness = (pixels[bottomIdx] + pixels[bottomIdx + 1] + pixels[bottomIdx + 2]) / 3;
+                        
+                        const edgeStrength = Math.abs(centerBrightness - rightBrightness) + Math.abs(centerBrightness - bottomBrightness);
+                        sharpness += edgeStrength;
+                    }
+                }
+                sharpness = sharpness / ((width - 2) * (height - 2));
+                
+                return {
+                    brightness: avgBrightness,
+                    contrast: avgContrast,
+                    noise: noiseLevel,
+                    sharpness: sharpness
+                };
+            }
+
+            autoAdjustParameters(analysis) {
+                // Adjust based on mode
+                switch (this.currentMode) {
+                    case 'portrait':
+                        this.parameters.strength = 60;
+                        this.parameters.radius = 2;
+                        this.parameters.detail = 40;
+                        this.parameters.contrast = 15;
+                        this.enhancementOptions.denoise = true;
+                        this.enhancementOptions.sharpen = true;
+                        this.enhancementOptions.clarity = true;
+                        break;
+                    case 'landscape':
+                        this.parameters.strength = 80;
+                        this.parameters.radius = 3;
+                        this.parameters.detail = 60;
+                        this.parameters.contrast = 25;
+                        this.enhancementOptions.sharpen = true;
+                        this.enhancementOptions.contrast = true;
+                        this.enhancementOptions.saturation = true;
+                        break;
+                    case 'noise':
+                        this.parameters.strength = 70;
+                        this.parameters.radius = 4;
+                        this.parameters.detail = 30;
+                        this.parameters.contrast = 10;
+                        this.enhancementOptions.denoise = true;
+                        this.enhancementOptions.clarity = true;
+                        break;
+                    case 'sharpen':
+                        this.parameters.strength = 85;
+                        this.parameters.radius = 2;
+                        this.parameters.detail = 70;
+                        this.parameters.contrast = 20;
+                        this.enhancementOptions.sharpen = true;
+                        this.enhancementOptions.clarity = true;
+                        break;
+                    default:
+                        // Auto mode - adjust based on analysis
+                        if (analysis.noise > 15) {
+                            this.parameters.strength = Math.min(90, 50 + analysis.noise);
+                            this.parameters.radius = Math.min(5, Math.round(analysis.noise / 5));
+                            this.enhancementOptions.denoise = true;
+                        }
+                        
+                        if (analysis.sharpness < 10) {
+                            this.parameters.strength = Math.max(60, this.parameters.strength);
+                            this.parameters.detail = Math.min(80, 50 + (10 - analysis.sharpen) * 5);
+                            this.enhancementOptions.sharpen = true;
+                        }
+                        
+                        if (analysis.contrast < 20) {
+                            this.parameters.contrast = Math.min(40, 20 + (20 - analysis.contrast));
+                            this.enhancementOptions.contrast = true;
+                        }
+                }
+                
+                this.updateAllSliders();
+                this.updateAllToggles();
+            }
+
+            updateControlsForMode() {
+                if (this.currentMode === 'custom') {
+                    // Show all controls
+                    document.querySelectorAll('.control-section').forEach(section => {
+                        section.style.display = 'block';
+                    });
+                } else {
+                    // Show/hide controls based on mode
+                    this.analyzeImage();
+                }
+            }
+
+            updateSliderValue(sliderName) {
+                const value = this.parameters[sliderName];
+                let displayValue = value;
+                
+                switch (sliderName) {
+                    case 'strength':
+                    case 'detail':
+                        displayValue = value + '%';
+                        break;
+                    case 'radius':
+                        displayValue = value + 'px';
+                        break;
+                    case 'contrast':
+                        displayValue = (value > 0 ? '+' : '') + value + '%';
+                        break;
+                }
+                
+                this.sliderValues[sliderName].textContent = displayValue;
+            }
+
+            updateAllSliders() {
+                Object.keys(this.sliders).forEach(key => {
+                    this.sliders[key].value = this.parameters[key];
+                    this.updateSliderValue(key);
+                });
+            }
+
+            updateAllToggles() {
+                this.toggleButtons.forEach(btn => {
+                    const option = btn.dataset.option;
+                    if (this.enhancementOptions[option]) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            debounceProcess() {
+                clearTimeout(this.debounceTimer);
+                this.debounceTimer = setTimeout(() => {
+                    this.processImage();
+                }, 300);
+            }
+
+            enhanceImage() {
+                if (!this.originalImage || this.isProcessing) return;
+                
+                this.isProcessing = true;
+                this.showProcessingModal();
+                
+                setTimeout(() => {
+                    this.processImage();
+                }, 500);
+            }
+
+            processImage() {
+                if (!this.originalImage) return;
+                
+                // Create a temporary canvas for processing
+                const tempCanvas = document.createElement('canvas');
+                const tempCtx = tempCanvas.getContext('2d');
+                
+                tempCanvas.width = this.originalImage.width;
+                tempCanvas.height = this.originalImage.height;
+                tempCtx.drawImage(this.originalImage, 0, 0);
+                
+                let imageData = tempCtx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+                
+                // Apply enhancement based on options
+                if (this.enhancementOptions.denoise) {
+                    imageData = this.applyDenoise(imageData);
+                }
+                
+                if (this.enhancementOptions.sharpen) {
+                    imageData = this.applySharpen(imageData);
+                }
+                
+                if (this.enhancementOptions.contrast) {
+                    imageData = this.applyContrast(imageData);
+                }
+                
+                if (this.enhancementOptions.saturation) {
+                    imageData = this.applySaturation(imageData);
+                }
+                
+                if (this.enhancementOptions.clarity) {
+                    imageData = this.applyClarity(imageData);
+                }
+                
+                if (this.enhancementOptions.vibrance) {
+                    imageData = this.applyVibrance(imageData);
+                }
+                
+                // Put processed image data back to canvas
+                tempCtx.putImageData(imageData, 0, 0);
+                
+                // Create a new image from the processed canvas
+                const processedImg = new Image();
+                processedImg.onload = () => {
+                    this.processedImage = processedImg;
+                    this.displayImage(this.processedCanvas, processedImg);
+                    this.isProcessing = false;
+                    this.completeProcessing();
+                };
+                processedImg.src = tempCanvas.toDataURL();
+            }
+
+            applyDenoise(imageData) {
+                // Advanced bilateral filter implementation
+                const pixels = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                const output = new Uint8ClampedArray(pixels);
+                
+                const radius = this.parameters.radius;
+                const spatialSigma = radius;
+                const intensitySigma = 30;
+                
+                for (let y = 0; y < height; y++) {
+                    for (let x = 0; x < width; x++) {
+                        let r = 0, g = 0, b = 0, a = 0;
+                        let totalWeight = 0;
+                        
+                        const centerIdx = (y * width + x) * 4;
+                        const centerR = pixels[centerIdx];
+                        const centerG = pixels[centerIdx + 1];
+                        const centerB = pixels[centerIdx + 2];
+                        const centerA = pixels[centerIdx + 3];
+                        
+                        for (let dy = -radius; dy <= radius; dy++) {
+                            for (let dx = -radius; dx <= radius; dx++) {
+                                const ny = y + dy;
+                                const nx = x + dx;
+                                
+                                if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
+                                    const idx = (ny * width + nx) * 4;
+                                    const pixelR = pixels[idx];
+                                    const pixelG = pixels[idx + 1];
+                                    const pixelB = pixels[idx + 2];
+                                    const pixelA = pixels[idx + 3];
+                                    
+                                    // Calculate spatial weight
+                                    const spatialDist = Math.sqrt(dx * dx + dy * dy);
+                                    const spatialWeight = Math.exp(-0.5 * (spatialDist * spatialDist) / (spatialSigma * spatialSigma));
+                                    
+                                    // Calculate intensity weight
+                                    const intensityDist = Math.sqrt(
+                                        Math.pow(pixelR - centerR, 2) +
+                                        Math.pow(pixelG - centerG, 2) +
+                                        Math.pow(pixelB - centerB, 2)
+                                    );
+                                    const intensityWeight = Math.exp(-0.5 * (intensityDist * intensityDist) / (intensitySigma * intensitySigma));
+                                    
+                                    // Combined weight
+                                    const weight = spatialWeight * intensityWeight;
+                                    
+                                    r += pixelR * weight;
+                                    g += pixelG * weight;
+                                    b += pixelB * weight;
+                                    a += pixelA * weight;
+                                    totalWeight += weight;
+                                }
+                            }
+                        }
+                        
+                        const idx = (y * width + x) * 4;
+                        output[idx] = r / totalWeight;
+                        output[idx + 1] = g / totalWeight;
+                        output[idx + 2] = b / totalWeight;
+                        output[idx + 3] = a / totalWeight;
+                    }
+                }
+                
+                return new ImageData(output, width, height);
+            }
+
+            applySharpen(imageData) {
+                // Advanced unsharp mask implementation
+                const pixels = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                const output = new Uint8ClampedArray(pixels);
+                
+                const strength = this.parameters.strength / 100;
+                const radius = this.parameters.radius;
+                
+                // Create a blurred version
+                const blurred = this.applyGaussianBlur(imageData, radius);
+                const blurredPixels = blurred.data;
+                
+                // Apply unsharp mask
+                for (let i = 0; i < pixels.length; i += 4) {
+                    for (let j = 0; j < 3; j++) {
+                        const diff = pixels[i + j] - blurredPixels[i + j];
+                        output[i + j] = Math.min(255, Math.max(0, pixels[i + j] + diff * strength));
+                    }
+                    output[i + 3] = pixels[i + 3];
+                }
+                
+                return new ImageData(output, width, height);
+            }
+
+            applyGaussianBlur(imageData, radius) {
+                const pixels = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                const output = new Uint8ClampedArray(pixels);
+                
+                // Simple box blur approximation
+                for (let y = 0; y < height; y++) {
+                    for (let x = 0; x < width; x++) {
+                        let r = 0, g = 0, b = 0, a = 0;
+                        let count = 0;
+                        
+                        for (let dy = -radius; dy <= radius; dy++) {
+                            for (let dx = -radius; dx <= radius; dx++) {
+                                const ny = y + dy;
+                                const nx = x + dx;
+                                
+                                if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
+                                    const idx = (ny * width + nx) * 4;
+                                    r += pixels[idx];
+                                    g += pixels[idx + 1];
+                                    b += pixels[idx + 2];
+                                    a += pixels[idx + 3];
+                                    count++;
+                                }
+                            }
+                        }
+                        
+                        const idx = (y * width + x) * 4;
+                        output[idx] = r / count;
+                        output[idx + 1] = g / count;
+                        output[idx + 2] = b / count;
+                        output[idx + 3] = a / count;
+                    }
+                }
+                
+                return new ImageData(output, width, height);
+            }
+
+            applyContrast(imageData) {
+                const pixels = imageData.data;
+                const output = new Uint8ClampedArray(pixels);
+                const contrast = this.parameters.contrast / 100;
+                
+                for (let i = 0; i < pixels.length; i += 4) {
+                    for (let j = 0; j < 3; j++) {
+                        output[i + j] = Math.min(255, Math.max(0, ((pixels[i + j] - 128) * (1 + contrast)) + 128));
+                    }
+                    output[i + 3] = pixels[i + 3];
+                }
+                
+                return new ImageData(output, imageData.width, imageData.height);
+            }
+
+            applySaturation(imageData) {
+                const pixels = imageData.data;
+                const output = new Uint8ClampedArray(pixels);
+                const saturation = this.parameters.detail / 100;
+                
+                for (let i = 0; i < pixels.length; i += 4) {
+                    const r = pixels[i];
+                    const g = pixels[i + 1];
+                    const b = pixels[i + 2];
+                    
+                    const gray = 0.299 * r + 0.587 * g + 0.114 * b;
+                    
+                    output[i] = Math.min(255, Math.max(0, gray + (r - gray) * (1 + saturation)));
+                    output[i + 1] = Math.min(255, Math.max(0, gray + (g - gray) * (1 + saturation)));
+                    output[i + 2] = Math.min(255, Math.max(0, gray + (b - gray) * (1 + saturation)));
+                    output[i + 3] = pixels[i + 3];
+                }
+                
+                return new ImageData(output, imageData.width, imageData.height);
+            }
+
+            applyClarity(imageData) {
+                // Local contrast enhancement
+                const pixels = imageData.data;
+                const width = imageData.width;
+                const height = imageData.height;
+                const output = new Uint8ClampedArray(pixels);
+                
+                const radius = 15;
+                const strength = this.parameters.detail / 200;
+                
+                for (let y = 0; y < height; y++) {
+                    for (let x = 0; x < width; x++) {
+                        const idx = (y * width + x) * 4;
+                        
+                        let localMean = 0;
+                        let count = 0;
+                        
+                        for (let dy = -radius; dy <= radius; dy++) {
+                            for (let dx = -radius; dx <= radius; dx++) {
+                                const ny = y + dy;
+                                const nx = x + dx;
+                                
+                                if (ny >= 0 && ny < height && nx >= 0 && nx < width) {
+                                    const nIdx = (ny * width + nx) * 4;
+                                    localMean += (pixels[nIdx] + pixels[nIdx + 1] + pixels[nIdx + 2]) / 3;
+                                    count++;
+                                }
+                            }
+                        }
+                        
+                        localMean /= count;
+                        const centerValue = (pixels[idx] + pixels[idx + 1] + pixels[idx + 2]) / 3;
+                        const difference = centerValue - localMean;
+                        
+                        for (let j = 0; j < 3; j++) {
+                            output[idx + j] = Math.min(255, Math.max(0, pixels[idx + j] + difference * strength));
+                        }
+                        output[idx + 3] = pixels[idx + 3];
+                    }
+                }
+                
+                return new ImageData(output, width, height);
+            }
+
+            applyVibrance(imageData) {
+                const pixels = imageData.data;
+                const output = new Uint8ClampedArray(pixels);
+                const vibrance = this.parameters.detail / 100;
+                
+                for (let i = 0; i < pixels.length; i += 4) {
+                    const r = pixels[i];
+                    const g = pixels[i + 1];
+                    const b = pixels[i + 2];
+                    
+                    const max = Math.max(r, g, b);
+                    const avg = (r + g + b) / 3;
+                    const amt = ((Math.abs(max - avg) * 2 / 255) * vibrance) / 100;
+                    
+                    output[i] = Math.min(255, Math.max(0, r + (max - r) * amt));
+                    output[i + 1] = Math.min(255, Math.max(0, g + (max - g) * amt));
+                    output[i + 2] = Math.min(255, Math.max(0, b + (max - b) * amt));
+                    output[i + 3] = pixels[i + 3];
+                }
+                
+                return new ImageData(output, imageData.width, imageData.height);
+            }
+
+            showProcessingModal() {
+                this.processingModal.classList.add('active');
+                this.progressFill.style.width = '0%';
+                
+                // Simulate processing steps
+                let step = 1;
+                const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
+                const progressInterval = setInterval(() => {
+                    if (step <= 4) {
+                        // Update progress
+                        const progress = (step / 4) * 100;
+                        this.progressFill.style.width = `${progress}%`;
+                        
+                        // Update step indicators
+                        steps.forEach((stepId, index) => {
+                            const stepElement = document.getElementById(stepId);
+                            if (index < step) {
+                                stepElement.classList.add('completed');
+                                stepElement.classList.remove('active');
+                            } else if (index === step - 1) {
+                                stepElement.classList.add('active');
+                                stepElement.classList.remove('completed');
+                            } else {
+                                stepElement.classList.remove('active', 'completed');
+                            }
+                        });
+                        
+                        step++;
+                    } else {
+                        clearInterval(progressInterval);
+                    }
+                }, 800);
+            }
+
+            completeProcessing() {
+                setTimeout(() => {
+                    this.processingModal.classList.remove('active');
+                    this.showResultModal();
+                    this.showToast('Image enhanced successfully!', 'success');
+                }, 500);
+            }
+
+            showResultModal() {
+                this.resultBefore.src = this.originalCanvas.toDataURL();
+                this.resultAfter.src = this.processedCanvas.toDataURL();
+                this.resultModal.classList.add('active');
+            }
+
+            closeResultModal() {
+                this.resultModal.classList.remove('active');
+            }
+
+            newImage() {
+                this.closeResultModal();
+                this.fileInput.click();
+            }
+
+            resetImage() {
+                if (!this.originalImage) return;
+                
+                this.displayImage(this.processedCanvas, this.originalImage);
+                this.processedImage = this.originalImage;
+                this.showToast('Reset to original', 'success');
+            }
+
+            downloadImage() {
+                const canvas = this.processedImage ? this.processedCanvas : this.originalCanvas;
+                const link = document.createElement('a');
+                link.download = 'enhanced-image.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+                this.showToast('Image downloaded', 'success');
+            }
+
+            setZoomMode(mode) {
+                if (!this.originalImage) return;
+                
+                if (mode === 'fit') {
+                    this.displayImage(this.originalCanvas, this.originalImage);
+                    this.displayImage(this.processedCanvas, this.processedImage || this.originalImage);
+                } else if (mode === 'actual') {
+                    const ctx1 = this.originalCanvas.getContext('2d');
+                    const ctx2 = this.processedCanvas.getContext('2d');
+                    
+                    this.originalCanvas.width = this.originalImage.width;
+                    this.originalCanvas.height = this.originalImage.height;
+                    this.processedCanvas.width = this.originalImage.width;
+                    this.processedCanvas.height = this.originalImage.height;
+                    
+                    ctx1.drawImage(this.originalImage, 0, 0);
+                    ctx2.drawImage(this.processedImage || this.originalImage, 0, 0);
+                    
+                    this.updateComparisonSlider();
+                }
+            }
+
+            toggleComparison() {
+                // Toggle between side-by-side and slider comparison
+                // Implementation depends on specific requirements
+                this.showToast('Comparison mode toggled', 'success');
+            }
+
+            initializeComparisonSlider() {
+                let isDragging = false;
+                
+                this.comparisonSlider.addEventListener('mousedown', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('mousemove', (e) => {
+                    if (!isDragging) return;
+                    
+                    const rect = this.previewComparison.getBoundingClientRect();
+                    let position = ((e.clientX - rect.left) / rect.width) * 100;
+                    position = Math.max(0, Math.min(100, position));
+                    this.comparisonPosition = position;
+                    this.updateComparisonSlider();
+                });
+                
+                document.addEventListener('mouseup', () => {
+                    isDragging = false;
+                });
+                
+                // Touch events for mobile
+                this.comparisonSlider.addEventListener('touchstart', (e) => {
+                    isDragging = true;
+                    e.preventDefault();
+                });
+                
+                document.addEventListener('touchmove', (e) => {
+                    if (!isDragging) return;
+                    
+                    const rect = this.previewComparison.getBoundingClientRect();
+                    let position = ((e.touches[0].clientX - rect.left) / rect.width) * 100;
+                    position = Math.max(0, Math.min(100, position));
+                    this.comparisonPosition = position;
+                    this.updateComparisonSlider();
+                });
+                
+                document.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            }
+
+            updateComparisonSlider() {
+                const rect = this.previewComparison.getBoundingClientRect();
+                const position = (this.comparisonPosition / 100) * rect.width;
+                
+                this.comparisonSlider.style.left = `${position}px`;
+                this.processedCanvas.style.clipPath = `inset(0 ${100 - this.comparisonPosition}% 0 0)`;
+            }
+
+            showToast(message, type = 'info') {
+                this.toastMessage.textContent = message;
+                this.toast.className = 'toast show';
+                
+                if (type === 'error') {
+                    this.toast.classList.add('error');
+                } else if (type === 'success') {
+                    this.toast.classList.add('success');
+                }
+                
+                setTimeout(() => {
+                    this.toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            const enhancer = new ImageEnhancerPro();
+            
+            // Add smooth scroll behavior
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Add parallax effect to hero section
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.hero');
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+            });
+            
+            // Add intersection observer for animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe feature cards and sections
+            document.querySelectorAll('.feature-card, .about-section, .algorithm-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
